@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import biblioteca.ElementoBiblioteca;
+import biblioteca.rivistaElementoBiblioteca;
 
 
 @Entity
@@ -26,6 +27,9 @@ public class Prestito {
 	private int id;
 	
 	
+	public Prestito(User utente3, rivistaElementoBiblioteca rivista1, LocalDate of, LocalDate of2) {
+	// TODO Auto-generated constructor stub
+}
 	public int getId() {
 		return id;
 	}

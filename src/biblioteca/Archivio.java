@@ -1,6 +1,12 @@
 package biblioteca;
 
+import java.time.LocalDate;
+
+import biblioteca.user.Prestito;
+import biblioteca.user.User;
 import bibliotecadao.ElementoDao;
+import bibliotecadao.PrestitoDao;
+import bibliotecadao.UserDao;
 
 public class Archivio {
 
@@ -22,9 +28,36 @@ public class Archivio {
 		elementodao.inserisci(libro3);
 		elementodao.inserisci(rivista1);
 		elementodao.inserisci(rivista2);
+		
+		User utente1 = new User("Giovanni", "Rossi", 55, 6464);
+		User utente2 = new User("Pietro", "Verdi", 35, 9009);
+		User utente3 = new User("Erika", "Bianchi", 19, 8118);
+		
+		Prestito prestito1 = new Prestito(utente3, rivista2, LocalDate.of(2022, 6, 20), null);
+		Prestito prestito2 = new Prestito(utente3, libro1, LocalDate.of(2022, 7, 20), null);
+		Prestito prestito3 = new Prestito(utente3, rivista1, LocalDate.of(2022, 7, 23), LocalDate.of(2022, 8, 07));
+		UserDao userdao = new UserDao();
+		userdao.inserisci(utente1);
+		userdao.inserisci(utente2);
+		userdao.inserisci(utente3);
+        PrestitoDao prestitodao = new PrestitoDao();
+		prestitodao.inserisci(prestito1);
+		prestitodao.inserisci(prestito2);
+		prestitodao.inserisci(prestito3);
+		
+		
+		
+		
+		//utenteDao.searchbyNameT(9999);
+		
+		userdao.searchbyNameT(6464);
+		userdao.searchbyNameT(9009);
+		userdao.searchbyNameT(8118);
+		prestitoDao.recuperadaid(prestito3);
+		System.out.println("@@@@@@@@@@@@@@@@@@#######################@@@@@@@@@@@@@@@@@@@@@@");
 	
 	}
-	
+	 
 	
 
 }
